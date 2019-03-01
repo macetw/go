@@ -588,11 +588,15 @@ func Asmbmacho(ctxt *Link) {
 		// and we can assume OS X.
 		//
 		// See golang.org/issues/12941.
+		//
+		// For Apple Notary compatibility, the minimum version is 10.9.x.
+		//
+		// See golang.org/issues/30488.
 		const LC_VERSION_MIN_MACOSX = 0x24
 
 		ml := newMachoLoad(LC_VERSION_MIN_MACOSX, 2)
-		ml.data[0] = 10<<16 | 7<<8 | 0<<0 // OS X version 10.7.0
-		ml.data[1] = 10<<16 | 7<<8 | 0<<0 // SDK 10.7.0
+		ml.data[0] = 10<<16 | 9<<8 | 0<<0 // OS X version 10.9.0
+		ml.data[1] = 10<<16 | 9<<8 | 0<<0 // SDK 10.9.0
 	}
 
 	a := machowrite()
