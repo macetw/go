@@ -5,14 +5,10 @@
 package work
 
 import (
-	"bytes"
-	"fmt"
 	"io/ioutil"
 	"os"
 	"path/filepath"
 	"reflect"
-	"runtime"
-	"strings"
 	"testing"
 
 	"cmd/go/internal/base"
